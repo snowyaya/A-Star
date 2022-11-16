@@ -38,3 +38,8 @@ function getCompDistribution(req, res) {
       }
     });
   }
+
+  module.exports = {
+    getCompDistribution: getCompDistribution,
+  };
+  
