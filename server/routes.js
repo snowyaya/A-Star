@@ -19,3 +19,22 @@ async function hello(req, res) {
         res.send(`Hello! Welcome to the FIFA server!`)
     }
 }
+
+/* ---- (Get companies distribution) ---- */
+function getCompDistribution(req, res) {
+    console.log(
+      "Called getCompDistribution"
+    );
+    var query = `
+    SELECT state_code as State, COUNT(id) AS Companies
+    FROM companies
+    GROUP BY state_code
+    `;
+    connection.query(query, function (err, rows, fields) {
+      if (err) console.log(err);
+      else {
+        console.log(rows);
+        res.json(rows);
+      }
+    });
+  }
