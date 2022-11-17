@@ -22,9 +22,7 @@ async function hello(req, res) {
 
 /* ---- (Get companies distribution) ---- */
 function getCompDistribution(req, res) {
-    console.log(
-      "Called getCompDistribution"
-    );
+    console.log("Called getCompDistribution");
     var query = `
     SELECT state_code as State, COUNT(id) AS Companies
     FROM companies
