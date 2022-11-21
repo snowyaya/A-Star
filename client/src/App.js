@@ -1,4 +1,12 @@
-import React from "react"
+import React from "react";
+import FundingPage from './pages/FundingPage';
+import ReactDOM from 'react-dom'; 
+
+import {
+	BrowserRouter as Router,
+	Route,
+	Switch
+} from 'react-router-dom';
 
 class App extends React.Component {
   state = {
@@ -12,9 +20,24 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <h1>Hello {this.state.name}!</h1>
-    )
+    // return (
+    //   <h1>Hello {this.state.name}!</h1>
+    // )
+    return <FundingPage />
+    // return (
+    //   <div>
+    //     <Router>
+    //       <Switch>
+    //         <Route exact
+    //             path="/"
+    //             render={() => (
+    //               <FundingPage />
+    //             )}/>   
+    //       </Switch> 
+    //     </Router>
+
+    //   </div>
+    // )
   }
 }
 
