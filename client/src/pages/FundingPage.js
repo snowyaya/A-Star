@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { getCompanyAngelSeedFunding } from '../fetcher'
 
 import {
@@ -9,26 +8,25 @@ import {
     Col,
     Divider,
     Slider,
-    Rate 
+    Rate,
+    Input
 } from 'antd'
-
-const usersParam = ['companyName', 'category', 'funding_amount'];
 
 const fundingColumns = [
     {
-        title: 'companyName',
-        dataIndex: 'companyName',
-        key: 'companyName'
+        title: 'company',
+        dataIndex: 'company',
+        key: 'company'
     },
     {
-        title: 'category',
-        dataIndex: 'category',
-        key: 'category'
+        title: 'category_code',
+        dataIndex: 'category_code',
+        key: 'category_code'
     },
     {
-        title: 'funding_amount',
-        dataIndex: 'funding_amount',
-        key: 'funding_amount'
+        title: 'funding',
+        dataIndex: 'funding',
+        key: 'funding'
     }
 ]
 
@@ -36,42 +34,46 @@ class FundingPage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            companyName: '',
-            category: '',
-            funding_amount: 0
+            fundingResults: []
         }
 
-        this.updateSearchResults = this.updateSearchResults.bind(this)
+        this.fundingOnChange = this.fundingOnChange.bind(this)
     }
 
-    updateSearchResults() {
+    fundingOnChange() {
         getCompanyAngelSeedFunding().then(data => {
             this.setState({
-                companyName: data.companyName,
-                category: data.category,
-                funding_amount: data.funding_amount
+                fundingResults: data.results
             })
         })
     }
 
     componentDidMount() {
         getCompanyAngelSeedFunding().then(data => {
+            console.log("***** 🔆 Mount: Funding Results ", this.state.fundingResults)
             this.setState({
-                companyName: data.companyName,
-                category: data.category,
-                funding_amount: data.funding_amount
+                fundingResults: data.results
             })
         })
     }
 
     render() {
-        const inputData = this.state
-        console.log("***** 🔆 Render successful ", inputData)
+        const fundingResults = this.state.fundingResults
+
         return (
+            <>
+            <h3>Company Funding</h3>
             
-            <div style={{ width: '70vw', margin: '0 auto', marginTop: '2vh' }}>
-                <h3>Company Funding</h3>
-            </div>
+            {this.fundingResults ? 
+            <div className="funding-results-container"></div> 
+            : <div className="funding-results-container"></div>}
+            <Table
+                columns={fundingColumns}
+                dataSource={fundingResults}
+                pagination={true}
+                scroll={{ y: 1000 }} />
+
+            </>
         )
     }
 }

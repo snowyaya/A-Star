@@ -9,15 +9,15 @@ import {
 } from 'react-router-dom';
 
 class App extends React.Component {
-  state = {
-    name: ""
-  }
+  // state = {
+  //   name: ""
+  // }
 
-  componentDidMount() {
-    fetch("http://localhost:3000")
-      .then(res => res.json())
-      .then(data => this.setState({ name: data.name }))
-  }
+  // componentDidMount() {
+  //   fetch("http://localhost:3000")
+  //     .then(res => res.json())
+  //     .then(data => this.setState({ name: data.name }))
+  // }
 
   render() {
     // return (
