@@ -3,32 +3,19 @@ import "../style/Dashboard.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "@material-ui/core";
 import PageNavbar from "./PageNavbar";
-
 import ReactTooltip from "react-tooltip";
 import MapChart from "./MapChart";
 
 
-// library to convert state abbreviations, e.g. AL to Alabama.
-const allStates = require("us-state-converter");
-
 const Dashboard = () => {
-  // const [stateRows, setStateRows] = useState([]);
-
   const [statesQueryRes, setStatesQueryRes] = useState([]);
-
   const [content, setContent] = useState("");
-
   const [minVal, setMin] = useState("");
   const [maxVal, setMax] = useState("");
-  const [mapStats, setMapStats] = useState("");
 
-  // custom hook, we only need useEffect to run this function once similar to componentDidMount
   const useMountEffect = (func) => useEffect(func, []);
-
-  //"http://localhost:8081/home/homevaluestate"
+  
   function getCompanyDistributions() {
-    // setSuffix("");
-    setMapStats("homeValues");
     fetch("http://localhost:8081/home/companydistributions", {
       method: "GET", // The type of HTTP request.
     })
@@ -38,7 +25,6 @@ const Dashboard = () => {
           return res.json();
         },
         (err) => {
-          // Print the error if there is one.
           console.log(err);
         }
       )
@@ -58,22 +44,21 @@ const Dashboard = () => {
           );
           setStatesQueryRes(newObj);
 
-          console.log("New obj:");
-          console.log(newObj);
-          let minAvg = 1000000000; //to-do: set to math.max
-          let maxAvg = -1000000000; //to-do: set to math.min
+          // Initialize min and max  number of companies
+          let minCompanies = Number.MAX_SAFE_INTEGER; 
+          let maxCompanies = Number.MIN_SAFE_INTEGER; 
 
+          // Find min and max  number of companies
           for (const [key, value] of Object.entries(newObj)) { 
             if (value.Companies != null) {
-              minAvg = value.Companies < minAvg ? value.Companies : minAvg;
-              maxAvg = value.Companies > maxAvg ? value.Companies : maxAvg;
+              minCompanies = value.Companies < minCompanies ? value.Companies : minCompanies;
+              maxCompanies = value.Companies > maxCompanies ? value.Companies : maxCompanies;
             }
           }
-          setMin(minAvg);
-          setMax(maxAvg);
+          setMin(minCompanies);
+          setMax(maxCompanies);
         },
         (err) => {
-          // Print the error if there is one.
           console.log(err);
         }
       );
@@ -200,7 +185,8 @@ const Dashboard = () => {
           <MapChart
             setTooltipContent={setContent}
             statesQueryRes={statesQueryRes}
-            mapStats={mapStats}
+            minComp = {minVal}
+            maxComp = {maxVal}
           />
           <ReactTooltip html={true}> {content} </ReactTooltip>
         </div>
