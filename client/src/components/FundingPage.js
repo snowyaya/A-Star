@@ -2,15 +2,20 @@ import React from 'react';
 import { getCompanyAngelSeedFunding } from '../fetcher'
 
 import {
-    Form,
     Table,
-    Row,
-    Col,
-    Divider,
-    Slider,
-    Rate,
-    Input
 } from 'antd'
+
+// const FundingPage = () => {
+//     const [fundingResults] = useState([])
+
+//     const useMountEffect = (func) => useEffect(func, []);
+
+//     func getCompanyAngelSeedFunding() {
+//         fetch("http://localhost:8081/funding", {")
+//     }
+
+// }
+
 
 const fundingColumns = [
     {
@@ -72,7 +77,6 @@ class FundingPage extends React.Component {
                 dataSource={fundingResults}
                 pagination={true}
                 scroll={{ y: 1000 }} />
-
             </>
         )
     }

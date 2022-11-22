@@ -1,0 +1,25 @@
+#usmap {
+    margin: auto;
+    width: 50%;
+  }
+  
+  .content {
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  .choice {
+    width: 150px;
+    height: 80px;
+    padding: 100px;
+    margin: 100px;
+    border: 100px;
+  }
+  
+  /* * {background-color: #F4DEDA;
+  } */
+  
+  .choice:focus {
+    background-color: rgb(55, 124, 208);
+    color: white;
+  }
