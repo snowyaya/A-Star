@@ -11,21 +11,13 @@ const connection = mysql.createConnection({
 });
 connection.connect();
 
-async function hello(req, res) {
-    // a GET request to /hello?name=Steve
-    if (req.query.name) {
-        res.send(`Hello, ${req.query.name}! Welcome to the FIFA server!`)
-    } else {
-        res.send(`Hello! Welcome to the FIFA server!`)
-    }
-}
-
 /* ---- (Get companies distribution) ---- */
 function getCompDistribution(req, res) {
     console.log("Called getCompDistribution");
     var query = `
     SELECT state_code as State, COUNT(id) AS Companies
     FROM companies
+    WHERE state_code IS NOT NULL
     GROUP BY state_code
     `;
     connection.query(query, function (err, rows, fields) {

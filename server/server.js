@@ -1,27 +1,22 @@
 const express = require("express")
 const app = express()
 const cors = require("cors")
+const bodyParser = require("body-parser");
 
 const routes = require('./routes')
 const config = require('./config.json')
 
-app.use(cors())
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-// app.get("/", function(req, res) {
-//     res.send({"name": "Jane Doe"}) // Should be json format
-// })
+// Get company distributions
+app.get("/home/companydistributions", routes.getCompDistribution);
 
-// test
-console.log("Enter server.js 1");
-app.get("/", routes.getCompDistribution);
-
-/* ---- (Geographical distribution of the companies) ---- */
-console.log("Enter server.js 2");
-app.get("/home/distribution", routes.getCompDistribution);
 
 
 /* Need to change it to your own database */
-app.listen(3000, () => {
-  console.log("app listening on port 3000")
+app.listen(8081, () => {
+  console.log("app listening on port 8081")
 })
 
