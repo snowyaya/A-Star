@@ -27,7 +27,7 @@ async function getCompanyAngelSeedFunding(req, res) {
                 console.log(error)
                 res.json({ error: error })
             } else if (results) {
-                // console.log("***** ✅ Query successful! ✅ *****", results)
+                console.log("***** ✅ Query successful! ✅ *****", results)
                 res.json({ results: results })
             } else {
                 res.json({ results: [] })
@@ -37,5 +37,5 @@ async function getCompanyAngelSeedFunding(req, res) {
 }
 
 module.exports = {
-    getCompanyAngelSeedFunding
+    getCompanyAngelSeedFunding: getCompanyAngelSeedFunding
 }

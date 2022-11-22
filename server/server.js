@@ -11,12 +11,8 @@ const app = express()
 
 app.use(cors({ credentials: true, origin: ['http://localhost:3000'] }));
 
-// app.get("/", function(req, res) {
-//     res.send({"name": "Jane Doe"}) // Should be json format
-// })
-
 /* Query 3: This demonstration query to show the company's funding amount in angel and seed round, as well as the company category */
-app.get("/company_funding", routes.getCompanyAngelSeedFunding)
+app.get("/funding", routes.getCompanyAngelSeedFunding)
 
 /* Need to change it to your own database */
 // app.listen(3000, () => {
