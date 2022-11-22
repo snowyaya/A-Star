@@ -3,13 +3,12 @@ import PageNavbar from "./PageNavbar";
 import "../style/Home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default class Posters extends React.Component {
+export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {  
     };
   }
-
   render() {
     return (
       <div>
