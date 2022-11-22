@@ -1,0 +1,11 @@
+Model Information:
+* title:	Skyline GT-R R32 (Stylized)
+* source:	https://sketchfab.com/3d-models/skyline-gt-r-r32-stylized-616b84304f7f48fab561b1aecbf2e130
+* author:	Bandit.545 (https://sketchfab.com/Bandit.545)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Skyline GT-R R32 (Stylized)" (https://sketchfab.com/3d-models/skyline-gt-r-r32-stylized-616b84304f7f48fab561b1aecbf2e130) by Bandit.545 (https://sketchfab.com/Bandit.545) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
