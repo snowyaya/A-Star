@@ -1,5 +1,6 @@
 import React from "react";
 import FundingPage from './FundingPage';
+import VCPage from './VCPage';
 import Dashboard from "./Dashboard";
 import Home from './Home';
 
@@ -19,6 +20,7 @@ const App = () => {
           <Route exact path="/dashboard" element={<Dashboard/>} />
           <Route path="/home" element={<Home/>} />
           <Route path="/funding" element={<FundingPage />} />
+          <Route path="/vc" element={<VCPage/>} />
         </Routes>
       </Router>
     </div>
