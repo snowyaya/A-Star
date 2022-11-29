@@ -5,8 +5,7 @@ const PageNavBar = (props) => {
   const [navDivs, setNavDivs] = useState(true);
 
   useEffect(() => {
-    // list of pages for navbar, change when needed.
-    const pageList = ["home", "dashboard", "recommendation"];
+    const pageList = ["home", "dashboard", "recommendation", "funding"];
     let navbarDivs = pageList.map((page, i) => {
       if (props.active === page) {
         return (

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { getCompanyAngelSeedFunding } from '../fetcher'
 import config from './../config.json'
 
 
