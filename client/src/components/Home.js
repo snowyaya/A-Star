@@ -15,22 +15,27 @@ export default class Home extends React.Component {
       <div>
         <body
           background-image="sy.png"
-          style={{ backgroundSize: "100%" }}
-        >
+          style={{ backgroundSize: "100%" }
+          >
           <div>
             <PageNavbar active="home" />
           </div>
+          
             <div class="lander">
               <h1 id="title">A-STAR Investment</h1>
               <h4>Helping you grow your business</h4>
-            </div>
-            <div
-              style={{
-                height: "100px",
-              }}
-            ></div>
+          </div>
+          
+          <div
+            style={{
+              height: "950px",
+            }}
+          >
+          </div>
+          
         </body>
       </div>
     );
   }
 }
+
