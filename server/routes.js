@@ -13,21 +13,21 @@ connection.connect();
 
 /* Queries (YAYA)*/
 async function getCompanyAngelSeedFunding(req, res) {
-    const page = 1
-    const pagesize = 10
+    const page = req.query.page ? req.query.page : 1;
+    const pagesize = req.query.pagesize ? req.query.pagesize : 10;
     connection.query(
         `SELECT companies.name as company, category_code, SUM(raised_amount_usd) as funding
         FROM companies
         INNER JOIN funding_rounds ON companies.id = funding_rounds.object_id
         WHERE funding_round_code = 'angel' OR funding_round_code = 'seed'
         GROUP BY company
-        ORDER BY  funding DESC, COUNT(category_code) DESC
-        LIMIT ${pagesize} OFFSET ${pagesize  * (page - 1)}`, function (error, results, fields) {
+        ORDER BY  funding DESC, COUNT(category_code) DESC`, function (error, results, fields) {
             if (error) {
                 console.log(error)
                 res.json({ error: error })
             } else if (results) {
                 res.json({ results: results })
+                // console.log("***** ✅ Query successful! ✅ *****", results)
             } else {
                 res.json({ results: [] })
             }
