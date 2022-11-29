@@ -4,9 +4,8 @@ import {
   Select
 } from 'antd'
 
-// TODO:
 import { getVCFundingCategory } from '../fetcher'
-// const { Column, ColumnGroup } = Table;
+// const { Column, ColumnGroup } = Table; // save for later improvement
 const { Option } = Select;
 
 
@@ -22,6 +21,12 @@ const VCColumns = [
       dataIndex: 'number_of_investment',
       key: 'number_of_investment',
       sorter: (a, b) => a.number_of_investment - b.number_of_investment
+    },
+    {
+      title: 'Percentage Over Total Investment',
+      dataIndex: 'percentage',
+      key: 'percentage',
+      sorter: (a, b) => a.number_of_investment - b.number_of_investment
     }
 ];
 
@@ -31,11 +36,17 @@ const VCPage = () => {
 
     useEffect(()=>{    
       getVCFundingCategory(investorId).then(res => {
+      let sum = 0;
+      for( let i=0; i<res.results.length; i++){
+        sum += res.results[i].number_of_investment;
+      }
+
       const VCFundingResults = res.results.map((result, i) => {
         return {
             key: i,
             number_of_investment: result.number_of_investment,
             category_code: result.category_code,
+            percentage:parseFloat(result.number_of_investment/sum*100).toFixed(2)+"%"
         }
     })
 
