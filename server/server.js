@@ -12,6 +12,11 @@ app.use(cors({ credentials: true, origin: ['http://localhost:3000'] }));
 /* Query 3: This demonstration query to show the company's funding amount in angel and seed round, as well as the company category */
 app.get("/funding", routes.getCompanyAngelSeedFunding)
 
+
+/* Query 4(Ken): This demonstration query to show the Top VC's targeted industries */
+// app.get("/VC_funding/:investorId", routes.get_VC_category)
+app.get("/VC_funding", routes.get_VC_category)
+
 // Query 4: This recommendation query to recommend the categories of the startup companies
 app.get("/recommendation/company-category", routes.company_category_recommendations)
 

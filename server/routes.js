@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
 });
 connection.connect();
 
-/* Queries */
+/* Queries (YAYA)*/
 async function getCompanyAngelSeedFunding(req, res) {
     const page = 1
     const pagesize = 10
@@ -27,6 +27,29 @@ async function getCompanyAngelSeedFunding(req, res) {
                 console.log(error)
                 res.json({ error: error })
             } else if (results) {
+                res.json({ results: results })
+            } else {
+                res.json({ results: [] })
+            }
+        }
+    );
+}
+
+/* Queries (Ken)*/
+async function get_VC_category(req, res) {
+    const investorId = req.query.investorId ? req.query.investorId : 17;
+    connection.query(
+        `SELECT category_code, count(category_code) AS number_of_investment
+        FROM companies JOIN investments ON investments.funded_object_id = companies.id
+        WHERE investments.investor_object_id = ${investorId}
+        GROUP BY companies.category_code
+        ORDER BY count(category_code) DESC
+        LIMIT 10`, function (error, results, fields) {
+            if (error) {
+                console.log(error)
+                res.json({ error: error })
+            } else if (results) {
+                // console.log("***** ✅ Query successful! ✅ *****", results)
                 res.json({ results: results })
             } else {
                 res.json({ results: [] })
@@ -110,6 +133,7 @@ async function company_region_recommendations(req, res){
 }
 
 module.exports = {
+    get_VC_category,
     getCompanyAngelSeedFunding,
     company_category_recommendations,
     company_region_recommendations

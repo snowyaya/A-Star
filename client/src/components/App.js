@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./Home";
 import RecommendationPage from "./RecommendationPage";
 import FundingPage from './FundingPage';
+import VCPage from './VCPage';
 import Dashboard from "./Dashboard";
 
 import {
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/home" element={<Home/>} />
           <Route path="/recommendation" element={<RecommendationPage/>} />
           <Route path="/funding" element={<FundingPage />} />
+          <Route path="/vc" element={<VCPage/>} />
         </Routes>
       </Router>
     </div>
