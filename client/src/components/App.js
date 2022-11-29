@@ -1,7 +1,8 @@
 import React from "react";
+import Home from "./Home";
+import RecommendationPage from "./RecommendationPage";
 import FundingPage from './FundingPage';
 import Dashboard from "./Dashboard";
-import Home from './Home';
 
 import {
 	BrowserRouter as Router,
@@ -10,19 +11,21 @@ import {
 } from 'react-router-dom';
 import MapChart from "./MapChart";
 
+
 const App = () => {
   return (
     <div className="App">
       <Router>
         <Routes>
+          console.log("Entered App.js");
           <Route exact path="/" element={<Home/>} />
-          <Route exact path="/dashboard" element={<Dashboard/>} />
           <Route path="/home" element={<Home/>} />
+          <Route path="/recommendation" element={<RecommendationPage/>} />
           <Route path="/funding" element={<FundingPage />} />
         </Routes>
       </Router>
     </div>
-  )
-}
-export default App
+  );
+};
 
+export default App;

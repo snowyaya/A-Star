@@ -27,7 +27,6 @@ async function getCompanyAngelSeedFunding(req, res) {
                 console.log(error)
                 res.json({ error: error })
             } else if (results) {
-                console.log("***** ✅ Query successful! ✅ *****", results)
                 res.json({ results: results })
             } else {
                 res.json({ results: [] })
@@ -36,6 +35,82 @@ async function getCompanyAngelSeedFunding(req, res) {
     );
 }
 
+
+// **************************************************
+//              RECOMMENDATION ROUTES
+// **************************************************
+async function company_category_recommendations(req, res){
+
+    const major = req.query.major;
+
+    connection.query(`WITH people_in_same_major AS(
+        SELECT object_id 
+        FROM degrees 
+        WHERE subject LIKE '%${major}%'
+        ), people_in_which_company AS(
+        SELECT relationship_object_id
+        FROM relationships 
+        JOIN people_in_same_major ON people_in_same_major.object_id = relationships.person_object_id
+        ), company_categories AS(
+        SELECT category_code 
+        FROM companies 
+        JOIN people_in_which_company ON people_in_which_company.relationship_object_id = companies.id
+        )
+        SELECT category_code
+        FROM company_categories
+        GROUP BY category_code
+        ORDER BY COUNT(category_code) DESC;`, function(error, results, fields){
+            if (error){
+                console.log(error)
+                res.json({error: error})
+            }
+            else if (results){
+                res.json({results: results})
+            }
+            else{
+                res.json({results: []})
+            }
+        }
+    );
+}
+
+async function company_region_recommendations(req, res){
+
+    const major = req.query.major;
+    
+    connection.query(`WITH people_in_same_major AS(
+        SELECT object_id 
+        FROM degrees 
+        WHERE subject LIKE '%${major}%'
+        ), people_in_which_company AS(
+        SELECT relationship_object_id
+        FROM relationships 
+        JOIN people_in_same_major ON people_in_same_major.object_id = relationships.person_object_id
+        ), company_regions AS(
+        SELECT region
+        FROM companies 
+        JOIN people_in_which_company ON people_in_which_company.relationship_object_id = companies.id
+        )
+        SELECT region
+        FROM company_regions
+        GROUP BY region
+        ORDER BY COUNT(region) DESC;`, function(error, results, fields){
+            if (error){
+                console.log(error)
+                res.json({error: error})
+            }
+            else if (results){
+                res.json({results: results})
+            }
+            else{
+                res.json({results: []})
+            }
+        }
+    );
+}
+
 module.exports = {
-    getCompanyAngelSeedFunding: getCompanyAngelSeedFunding
+    getCompanyAngelSeedFunding,
+    company_category_recommendations,
+    company_region_recommendations
 }
