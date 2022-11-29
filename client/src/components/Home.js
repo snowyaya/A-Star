@@ -15,7 +15,7 @@ export default class Home extends React.Component {
       <div>
         <body
           background-image="sy.png"
-          style={{ backgroundSize: "100%" }
+          style={{ backgroundSize: "100%" }}
           >
           <div>
             <PageNavbar active="home" />
