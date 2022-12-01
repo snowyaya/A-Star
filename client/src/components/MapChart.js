@@ -39,43 +39,30 @@ const colorScale = scaleQuantize()
     "#782618",
   ]);
 
-const MapChart = ({ statesQueryRes, setTooltipContent, mapStats }) => {
+const MapChart = ({ statesQueryRes, setTooltipContent, minComp, maxComp}) => {
   console.log("StatesQueryRes:");
   console.log(statesQueryRes);
 
-  let minComp = 1000000000; //to-do: set to math.max
-  let maxComp = -1000000000; //to-do: set to math.min
-
-  // Find the min and max number of companies
-  for (const [key, value] of Object.entries(statesQueryRes)) {
-    console.log(value.Companies);
-    if (value.Companies != null) {
-      minComp = value.Companies < minComp ? value.Companies : minComp;
-      maxComp = value.Companies > maxComp ? value.Companies : maxComp;
-    }
-  }
-
   // Showing the number of companies when mouse hover over on the state
-  const handleMouseEnter = (stateAbbreviation) => {
+  const handleMouseEnter = (stateCode) => {
     let text;
     if (
-      statesQueryRes[stateAbbreviation] &&
-      statesQueryRes[stateAbbreviation].Companies
+      statesQueryRes[stateCode] &&
+      statesQueryRes[stateCode].Companies
     ) {
-        text = `Companies: ${(statesQueryRes[stateAbbreviation].Companies)} `;
+        text = `Companies: ${(statesQueryRes[stateCode].Companies)}`;
       }
     setTooltipContent(text);
   };
 
   //returns value between 1-40 for heatmap coloring
-  const findStateDecile = (stateAbbreviation) => {
-    let vals = statesQueryRes[stateAbbreviation]
-      ? statesQueryRes[stateAbbreviation].Companies
+  const findStateDecile = (stateCode) => {
+    let vals = statesQueryRes[stateCode]
+      ? statesQueryRes[stateCode].Companies
       : null;
 
     //determine decile based on state's average value vs min and max average values
     if (vals) {
-      //return 5;
       return ((vals - minComp) / (maxComp - minComp)) * 40 + 1;
     } else {
       return 0;
@@ -87,22 +74,19 @@ const MapChart = ({ statesQueryRes, setTooltipContent, mapStats }) => {
     <ComposableMap
       projection="geoAlbersUsa"
       id="usmap"
-      // style={{ width: "50%", height: "auto" }}
     >
       <Geographies data-tip="" geography={geoUrl}>
         {({ geographies }) => (
           <>
             {geographies.map((geo) => {
               let color;
-              //   const fillColor = getStateWinnerColor(geo.id);
               if (geo.id === "20") {
                 color = "CCC";
               } else {
                 color = "#ABC";
               }
-              //let decile = geo.id % 10;
-              const stateAbbrev = allStates.find((s) => s.val === geo.id);
-              let decile = findStateDecile(stateAbbrev.id);
+              const stateCode = allStates.find((s) => s.val === geo.id);
+              let decile = findStateDecile(stateCode.id);
               return (
                 <Geography
                   key={geo.rsmKey}
@@ -111,9 +95,8 @@ const MapChart = ({ statesQueryRes, setTooltipContent, mapStats }) => {
                   // fill={color}
                   fill={colorScale(decile)}
                   onMouseEnter={() => {
-                    const stateAbbrev = allStates.find((s) => s.val === geo.id);
-                    // console.log("Abbrevation is: " + stateAbbrev.id);
-                    handleMouseEnter(stateAbbrev.id);
+                    const stateCode = allStates.find((s) => s.val === geo.id);
+                    handleMouseEnter(stateCode.id);
                   }}
                   onMouseLeave={() => {
                     setTooltipContent(null);
@@ -129,7 +112,7 @@ const MapChart = ({ statesQueryRes, setTooltipContent, mapStats }) => {
                   {cur &&
                     centroid[0] > -160 &&
                     centroid[0] < -67 &&
-                    // if state abbrev not in offset list put abbrev in state else annotate outside.
+                    // if state code not in offset list, add state code to the map. Otherwise annotate outside of the map
                     (Object.keys(offsets).indexOf(cur.id) === -1 ? (
                       <Marker coordinates={centroid}>
                         <text y="2" fontSize={14} textAnchor="middle">

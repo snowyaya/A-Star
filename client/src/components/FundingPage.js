@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import config from './../config.json'
-
+import PageNavbar from "./PageNavbar";
 
 import {
     Table,
@@ -88,6 +88,7 @@ const FundingPage = () => {
 
     return (
         <>
+        <PageNavbar active="funding" />
         <h1>Funding Page</h1>
         {/* Display fundingresults in a table */}
         <Table 

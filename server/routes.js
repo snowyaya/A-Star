@@ -11,6 +11,24 @@ const connection = mysql.createConnection({
 });
 connection.connect();
 
+/* ---- (Get companies distribution) ---- */
+function getCompDistribution(req, res) {
+    console.log("Called getCompDistribution");
+    var query = `
+    SELECT state_code as State, COUNT(id) AS Companies
+    FROM companies
+    WHERE state_code IS NOT NULL
+    GROUP BY state_code
+    `;
+    connection.query(query, function (err, rows, fields) {
+      if (err) console.log(err);
+      else {
+        console.log(rows);
+        res.json(rows);
+      }
+    });
+  }
+
 /* Queries (YAYA)*/
 async function getCompanyAngelSeedFunding(req, res) {
     const page = req.query.page ? req.query.page : 1;
@@ -133,6 +151,7 @@ async function company_region_recommendations(req, res){
 }
 
 module.exports = {
+    getCompDistribution,
     get_VC_category,
     getCompanyAngelSeedFunding,
     company_category_recommendations,
