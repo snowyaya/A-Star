@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PageNavbar from "./PageNavbar";
 import {
   Table,
   Select
@@ -60,6 +61,7 @@ const VCPage = () => {
 
     return (
       <div>
+         <PageNavbar active="vc" />
         <div style={{ width: '70vw', margin: '0 auto', marginTop: '2vh' }}>
           <h1>Top VC's preferred 10 invested industries</h1>
           <Select defaultValue="17" style={{ width: 250 }} onChange={handleInvestorChange}>
