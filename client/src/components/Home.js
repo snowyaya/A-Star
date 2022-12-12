@@ -13,12 +13,9 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <body
-          background-image="sy.png"
-          style={{ backgroundSize: "100%" }}
-          >
+        <body>
           <div>
-            <PageNavbar active="home" />
+            <PageNavbar active="home"/>
           </div>
             <div class="lander">
               <h1 id="title">A-STAR Investment</h1>
