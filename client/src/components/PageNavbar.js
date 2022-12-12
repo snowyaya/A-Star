@@ -5,7 +5,7 @@ const PageNavBar = (props) => {
   const [navDivs, setNavDivs] = useState(true);
 
   useEffect(() => {
-    const pageList = ["home", "dashboard", "recommendation", "funding"];
+    const pageList = ["home", "dashboard", "recommendation", "funding", "vc"];
     let navbarDivs = pageList.map((page, i) => {
       if (props.active === page) {
         return (
@@ -22,9 +22,6 @@ const PageNavBar = (props) => {
       }
     });
     setNavDivs(navbarDivs);
-    // pass as "second arg" to see if component updated, i.e., if props.active changed since we check
-    // which page we're actively on to set it to active page and if so, then call useEffect().
-    // otherwise (if we haven't switched pages), no need to call this and set state to cause a re-render.
   }, [props.active]);
 
   return (

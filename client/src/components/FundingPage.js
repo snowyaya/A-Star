@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import config from './../config.json'
-
+import PageNavbar from "./PageNavbar";
 
 import {
     Table,
@@ -35,7 +35,7 @@ const FundingPage = () => {
         .then(
             (res) => {
                 // Convert the response data to a JSON.
-                console.log("✅ Query successfull! ✅");
+                // console.log("✅ Query successfull! ✅");
                 console.log(res);
                 return res.json();
             },
@@ -79,7 +79,7 @@ const FundingPage = () => {
                 })
 
                 setFundingResults(fundingResults)
-                console.log("***** 🔆 Funding Results: ");
+                // console.log("***** 🔆 Funding Results: ");
                 console.log(fundingResults)
                 isCancelled.current = true
             }
@@ -88,9 +88,15 @@ const FundingPage = () => {
 
     return (
         <>
+        <PageNavbar active="funding" />
         <h1>Funding Page</h1>
         {/* Display fundingresults in a table */}
-        <Table columns={fundingColumns} dataSource={fundingResults} />
+        <Table 
+        columns={fundingColumns} 
+        dataSource={fundingResults} 
+        pagination={{ pageSizeOptions:[10, 10], 
+          defaultPageSize: 10, 
+          showQuickJumper:true }}/>
         </>
     )
     

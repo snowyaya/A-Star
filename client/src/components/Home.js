@@ -20,19 +20,16 @@ export default class Home extends React.Component {
           <div>
             <PageNavbar active="home" />
           </div>
-          
             <div class="lander">
               <h1 id="title">A-STAR Investment</h1>
               <h4>Helping you grow your business</h4>
           </div>
-          
           <div
             style={{
-              height: "950px",
+              height: "100px",
             }}
           >
           </div>
-          
         </body>
       </div>
     );

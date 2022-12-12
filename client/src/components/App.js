@@ -21,6 +21,7 @@ const App = () => {
           console.log("Entered App.js");
           <Route exact path="/" element={<Home/>} />
           <Route path="/home" element={<Home/>} />
+          <Route exact path="/dashboard" element={<Dashboard/>} />
           <Route path="/recommendation" element={<RecommendationPage/>} />
           <Route path="/funding" element={<FundingPage />} />
           <Route path="/vc" element={<VCPage/>} />
