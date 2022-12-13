@@ -2,6 +2,10 @@ import React from "react";
 import PageNavbar from "./PageNavbar";
 import "../style/Home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Background from "./Background";
+import TextSection from "./TextSection";
+import styled from "styled-components";
+
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -12,24 +16,17 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <div>
-        <body>
-          <div style={{fontSize: '40px', fontWeight: 'bold'}}>
-            <PageNavbar active="home"/>
-          </div>
-            <div class="lander">
-              <h1 id="title">A-STAR Investment</h1>
-              <h4>Helping you grow your business</h4>
-          </div>
-          <div
-            style={{
-              height: "100px",
-            }}
-          >
-          </div>
-        </body>
-      </div>
+      <Wrapper>
+        <Background />
+        <PageNavbar active="home" />
+        <TextSection />
+      </Wrapper>
     );
   }
 }
+
+const Wrapper = styled.div`
+  position: relative;
+  background: #1f1144;
+`;
 

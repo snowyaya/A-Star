@@ -105,13 +105,14 @@ const FundingPage = () => {
         <div>
         <PageNavbar active="funding" />
         <div class="container" style = {{ width: '70vw', margin: '0 auto', marginTop: '2vh' }}>
-        <h1>Funding Page</h1>
+        <h2>Funding Page</h2>
         <Table class="table"
         columns={columns} 
         dataSource={fundingResults} 
         pagination={{ pageSizeOptions:[10, 10], 
           defaultPageSize: 10, 
-          showQuickJumper:true }}/>
+          showQuickJumper:true }}
+        style={{color:'white'}}/>
         </div>
         </div>
     )

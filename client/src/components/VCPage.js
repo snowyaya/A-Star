@@ -63,7 +63,7 @@ const VCPage = () => {
       <div>
          <PageNavbar active="vc" />
         <div style={{ width: '70vw', margin: '0 auto', marginTop: '2vh' }}>
-          <h1>Top VC's preferred 10 invested industries</h1>
+          <h2>Top VC's preferred 10 invested industries</h2>
           <Select defaultValue="17" style={{ width: 250 }} onChange={handleInvestorChange}>
             <Option value="17">Sequoia Capital</Option>
             <Option value="4">Accel Partners</Option>

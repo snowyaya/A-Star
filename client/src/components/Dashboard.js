@@ -75,6 +75,9 @@ const Dashboard = () => {
             style={{
               float: "left",
               marginLeft: "100px",
+              color: "white",
+              backgroundColor: "#acb6e5",
+              fontWeight: "bold",
             }}
             onClick={() => getCompanyDistributions()}
           >
@@ -88,7 +91,7 @@ const Dashboard = () => {
               marginLeft: "100px",
             }}
           >
-            <p>
+            <p style={{color: 'white', marginRight: '10px'}}>
               Min: 
               {minVal}
             </p>
@@ -170,7 +173,7 @@ const Dashboard = () => {
               float: "left",
             }}
           >
-            <p>
+            <p style={{color: 'white', marginLeft: '10px'}}>
               Max:
               {maxVal}
             </p>
