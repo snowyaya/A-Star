@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { BooleanKeyframeTrack } from "three";
 
 const PageNavBar = (props) => {
-  const [navDivs, setNavDivs] = useState(true);
-
+  const [navDivs, setNavDivs] = useState(true);  
+  
   useEffect(() => {
-    const pageList = ["home", "dashboard", "recommendation", "funding", "vc"];
+    const pageList = ["home", "dashboard", "recommendation", "funding", "VC"];
+
     let navbarDivs = pageList.map((page, i) => {
       if (props.active === page) {
         return (
@@ -25,10 +27,11 @@ const PageNavBar = (props) => {
   }, [props.active]);
 
   return (
+    
     <div className="PageNavbar">
-      <nav className="navbar navbar-expand-lg navbar-dark bg-info">
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">{navDivs}</div>
+      <nav className="navbar navbar-expand-lg navbar-dark" fontSize='30px'>
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup" style={{backgroundColor: "rgba(0,0,0,0.0)"}}>
+          <div className="navbar-nav" style={{backgroundColor: "rgba(0,0,0,0.0)"}}>{navDivs}</div>
         </div>
       </nav>
     </div>

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import config from './../config.json'
 import PageNavbar from "./PageNavbar";
-
+import { useTable, usePagination } from 'react-table';
+import { ButtonToolbar, Button } from "react-bootstrap";
 import {
     Table,
-    Button
-} from 'antd'
+    Select
+  } from 'antd'
 
 const FundingPage = () => {
     const url = `http://${config.server_host}:${config.server_port}/funding`
@@ -36,7 +37,7 @@ const FundingPage = () => {
             (res) => {
                 // Convert the response data to a JSON.
                 // console.log("✅ Query successfull! ✅");
-                console.log(res);
+                // console.log(res);
                 return res.json();
             },
             (err) => {
@@ -46,32 +47,28 @@ const FundingPage = () => {
         )
         .then (
             (data) => {
-                console.log("***** 🔆 data: ");
-                console.log(data);
+                // console.log("***** 🔆 data: ");
+                // console.log(data);
                 if (!data) return;
                 
                 setFundingColumns([
                     {
                         title: 'company',
                         dataIndex: 'company',
-                        key: 'company',
                     },
                     {
                         title: 'category_code',
                         dataIndex: 'category_code',
-                        key: 'category_code',
                     },
                     {
                         title: 'funding',
                         dataIndex: 'funding',
-                        key: 'funding',
                     },
                 ])
                 
                 // Populate the state of the component with the result of the HTTP response from the server.
                 const fundingResults = data.results.map((result) => {
                     return {
-                        key: result.company,
                         company: result.company,
                         category_code: result.category_code,
                         funding: result.funding,
@@ -80,26 +77,44 @@ const FundingPage = () => {
 
                 setFundingResults(fundingResults)
                 // console.log("***** 🔆 Funding Results: ");
-                console.log(fundingResults)
+                // console.log(fundingResults)
                 isCancelled.current = true
             }
         )
     }
 
+    const columns = [
+        {
+            title: 'Company',
+            dataIndex: 'company',
+            key: 'company',
+        },
+        {
+            title: 'Category',
+            dataIndex: 'category_code',
+            key: 'category_code',
+        },
+        {
+            title: 'Funding',
+            dataIndex: 'funding',
+            key: 'funding',
+        }
+    ]
+
     return (
-        <>
+        <div>
         <PageNavbar active="funding" />
+        <div class="container" style = {{ width: '70vw', margin: '0 auto', marginTop: '2vh' }}>
         <h1>Funding Page</h1>
-        {/* Display fundingresults in a table */}
-        <Table 
-        columns={fundingColumns} 
+        <Table class="table"
+        columns={columns} 
         dataSource={fundingResults} 
         pagination={{ pageSizeOptions:[10, 10], 
           defaultPageSize: 10, 
           showQuickJumper:true }}/>
-        </>
+        </div>
+        </div>
     )
-    
 }
 
 export default FundingPage;
