@@ -39,7 +39,7 @@ async function getCompanyAngelSeedFunding(req, res) {
         INNER JOIN funding_rounds ON companies.id = funding_rounds.object_id
         WHERE funding_round_code = 'angel' OR funding_round_code = 'seed'
         GROUP BY company
-        ORDER BY  funding DESC, COUNT(category_code) DESC`, function (error, results, fields) {
+        ORDER BY funding DESC, COUNT(category_code) DESC`, function (error, results, fields) {
             if (error) {
                 console.log(error)
                 res.json({ error: error })

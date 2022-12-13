@@ -82,45 +82,36 @@ const FundingPage = () => {
             }
         )
     }
-    const columns = React.useMemo(
-        () => [
-          {
-            Header: 'company',
-            accessor: 'company', // accessor is the "key" in the data
-          },
-          {
-            Header: 'category_code',
-            accessor: 'category_code',
-          },
-          {
-            Header: 'funding',
-            accessor: 'funding', // accessor is the "key" in the data
-          },
-        ],
-        []
-    ) 
 
-    const data = React.useMemo(
-        () => fundingResults, []
-    )
-
-    console.log("***** 🔆 columns: ", columns);
-    console.log("***** 🔆 data: ", data);
+    const columns = [
+        {
+            title: 'Company',
+            dataIndex: 'company',
+            key: 'company',
+        },
+        {
+            title: 'Category',
+            dataIndex: 'category_code',
+            key: 'category_code',
+        },
+        {
+            title: 'Funding',
+            dataIndex: 'funding',
+            key: 'funding',
+        }
+    ]
 
     return (
         <div>
-            <PageNavbar active="funding" />
+        <PageNavbar active="funding" />
         <div class="container" style = {{ width: '70vw', margin: '0 auto', marginTop: '2vh' }}>
-        
         <h1>Funding Page</h1>
-        <div class="whole-table"  style={{ width: '70vw', margin: '0 auto', marginTop: '2vh' }}>
         <Table class="table"
-        columns={fundingColumns} 
+        columns={columns} 
         dataSource={fundingResults} 
         pagination={{ pageSizeOptions:[10, 10], 
           defaultPageSize: 10, 
           showQuickJumper:true }}/>
-        </div>
         </div>
         </div>
     )

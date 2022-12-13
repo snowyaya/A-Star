@@ -6,7 +6,7 @@ const PageNavBar = (props) => {
   const [navDivs, setNavDivs] = useState(true);  
   
   useEffect(() => {
-    const pageList = ["home", "dashboard", "recommendation", "funding", "vc"];
+    const pageList = ["home", "dashboard", "recommendation", "funding", "VC"];
 
     let navbarDivs = pageList.map((page, i) => {
       if (props.active === page) {
@@ -29,7 +29,7 @@ const PageNavBar = (props) => {
   return (
     
     <div className="PageNavbar">
-      <nav className="navbar navbar-expand-lg navbar-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark" fontSize='30px'>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup" style={{backgroundColor: "rgba(0,0,0,0.0)"}}>
           <div className="navbar-nav" style={{backgroundColor: "rgba(0,0,0,0.0)"}}>{navDivs}</div>
         </div>

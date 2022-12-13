@@ -71,7 +71,7 @@ const RecommendationPage = () => {
   return (
     <div className="RecommendationPage">
       <PageNavbar active="recommendation"/>
-      <div style={{width: '70vw', margin: '0 auto', marginTop: '2vh'}}>
+      <div style={{width: '70vw', margin: '0 auto', marginTop: '2vh'}} >
       <h1>Start Up Company Category and Location Recommendation</h1>
         <input
           onChange={changeMajorInput}

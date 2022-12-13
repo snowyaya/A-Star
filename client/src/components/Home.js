@@ -14,7 +14,7 @@ export default class Home extends React.Component {
     return (
       <div>
         <body>
-          <div>
+          <div style={{fontSize: '40px', fontWeight: 'bold'}}>
             <PageNavbar active="home"/>
           </div>
             <div class="lander">
