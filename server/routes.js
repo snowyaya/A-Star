@@ -59,7 +59,8 @@ async function company_category_recommendations(req, res){
         SELECT category_code
         FROM company_categories
         GROUP BY category_code
-        ORDER BY COUNT(category_code) DESC;`, function(error, results, fields){
+        ORDER BY COUNT(category_code) DESC
+        LIMIT 10;`, function(error, results, fields){
             if (error){
                 console.log(error)
                 res.json({error: error})
@@ -94,7 +95,8 @@ async function company_region_recommendations(req, res){
         SELECT region
         FROM company_regions
         GROUP BY region
-        ORDER BY COUNT(region) DESC;`, function(error, results, fields){
+        ORDER BY COUNT(region) DESC
+        LIMIT 10;`, function(error, results, fields){
             if (error){
                 console.log(error)
                 res.json({error: error})
