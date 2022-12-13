@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BooleanKeyframeTrack } from "three";
 
 const PageNavBar = (props) => {
-  const [navDivs, setNavDivs] = useState(true);
+  const [navDivs, setNavDivs] = useState(true);  
   
   useEffect(() => {
     const pageList = ["home", "dashboard", "recommendation", "funding", "vc"];
@@ -30,8 +30,8 @@ const PageNavBar = (props) => {
     
     <div className="PageNavbar">
       <nav className="navbar navbar-expand-lg navbar-dark">
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup" style={{backgroundColor: "black"}}>
-          <div className="navbar-nav" style={{backgroundColor: "black"}}>{navDivs}</div>
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup" style={{backgroundColor: "rgba(0,0,0,0.0)"}}>
+          <div className="navbar-nav" style={{backgroundColor: "rgba(0,0,0,0.0)"}}>{navDivs}</div>
         </div>
       </nav>
     </div>
