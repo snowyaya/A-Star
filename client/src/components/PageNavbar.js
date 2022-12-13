@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { BooleanKeyframeTrack } from "three";
 
 const PageNavBar = (props) => {
   const [navDivs, setNavDivs] = useState(true);
-
+  
   useEffect(() => {
-    const pageList = ["home", "dashboard", "recommendation"];
+    const pageList = ["home", "dashboard", "recommendation", "funding", "vc"];
+
     let navbarDivs = pageList.map((page, i) => {
       if (props.active === page) {
         return (
@@ -22,16 +24,14 @@ const PageNavBar = (props) => {
       }
     });
     setNavDivs(navbarDivs);
-    // pass as "second arg" to see if component updated, i.e., if props.active changed since we check
-    // which page we're actively on to set it to active page and if so, then call useEffect().
-    // otherwise (if we haven't switched pages), no need to call this and set state to cause a re-render.
   }, [props.active]);
 
   return (
+    
     <div className="PageNavbar">
-      <nav className="navbar navbar-expand-lg navbar-dark bg-info">
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">{navDivs}</div>
+      <nav className="navbar navbar-expand-lg navbar-dark">
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup" style={{backgroundColor: "black"}}>
+          <div className="navbar-nav" style={{backgroundColor: "black"}}>{navDivs}</div>
         </div>
       </nav>
     </div>

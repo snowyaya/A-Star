@@ -11,22 +11,63 @@ const connection = mysql.createConnection({
 });
 connection.connect();
 
-/* Queries */
+/* ---- (Get companies distribution) ---- */
+function getCompDistribution(req, res) {
+    console.log("Called getCompDistribution");
+    var query = `
+    SELECT state_code as State, COUNT(id) AS Companies
+    FROM companies
+    WHERE state_code IS NOT NULL
+    GROUP BY state_code
+    `;
+    connection.query(query, function (err, rows, fields) {
+      if (err) console.log(err);
+      else {
+        console.log(rows);
+        res.json(rows);
+      }
+    });
+  }
+
+/* Queries (YAYA)*/
 async function getCompanyAngelSeedFunding(req, res) {
-    const page = 1
-    const pagesize = 10
+    const page = req.query.page ? req.query.page : 1;
+    const pagesize = req.query.pagesize ? req.query.pagesize : 10;
     connection.query(
         `SELECT companies.name as company, category_code, SUM(raised_amount_usd) as funding
         FROM companies
         INNER JOIN funding_rounds ON companies.id = funding_rounds.object_id
         WHERE funding_round_code = 'angel' OR funding_round_code = 'seed'
         GROUP BY company
-        ORDER BY  funding DESC, COUNT(category_code) DESC
-        LIMIT ${pagesize} OFFSET ${pagesize  * (page - 1)}`, function (error, results, fields) {
+        ORDER BY  funding DESC, COUNT(category_code) DESC`, function (error, results, fields) {
             if (error) {
                 console.log(error)
                 res.json({ error: error })
             } else if (results) {
+                res.json({ results: results })
+                // console.log("***** ✅ Query successful! ✅ *****", results)
+            } else {
+                res.json({ results: [] })
+            }
+        }
+    );
+}
+
+/* Queries (Ken)*/
+async function get_VC_category(req, res) {
+    const investorId = req.query.investorId ? req.query.investorId : 17;
+    connection.query(
+        `SELECT category_code, count(category_code) AS number_of_investment
+        FROM companies JOIN investments ON investments.funded_object_id = companies.id
+        WHERE investments.investor_object_id = ${investorId}
+        GROUP BY companies.category_code
+        ORDER BY count(category_code) DESC
+        LIMIT 10`, function (error, results, fields) {
+            if (error) {
+                console.log(error)
+                res.json({ error: error })
+            } else if (results) {
+                // console.log("***** ✅ Query successful! ✅ *****", results)
                 res.json({ results: results })
             } else {
                 res.json({ results: [] })
@@ -112,6 +153,8 @@ async function company_region_recommendations(req, res){
 }
 
 module.exports = {
+    getCompDistribution,
+    get_VC_category,
     getCompanyAngelSeedFunding,
     company_category_recommendations,
     company_region_recommendations
