@@ -1,5 +1,5 @@
 import PageNavbar from "./PageNavbar";
-// import config from "./config.json";
+import config from "./../config.json";
 import { Table } from "antd";
 
 import React, { useState } from 'react';
@@ -10,12 +10,12 @@ const RecommendationPage = () => {
   const [categoryResults, setCategoryResult] = useState([]);
   const [regionResults, setRegionResult] = useState([]);
 
-  const categoryUrl = `http://127.0.0.1:8080/recommendation/company-category?major=${major}`
-  const regionUrl = `http://127.0.0.1:8080/recommendation/company-region?major=${major}`
+  const categoryUrl = `http://${config.server_host}:${config.server_port}/recommendation/company-category?major=${major}`
+  const regionUrl = `http://${config.server_host}:${config.server_port}/recommendation/company-region?major=${major}`
 
   const categoryColumn = [
     {
-      title: 'Top 10 Company Categories',
+      title: 'Recommended Company Categories',
       dataIndex: 'category',
       key: 'category'
     }
@@ -23,7 +23,7 @@ const RecommendationPage = () => {
 
   const regionColumn = [
     {
-      title: 'Top 10 Company Regions',
+      title: 'Recommended Company Regions',
       dataIndex: 'region',
       key: 'region'
     }
@@ -34,11 +34,11 @@ const RecommendationPage = () => {
   }
   
   const search = async()=> {
-    getCompanyCateogry();
+    getCompanyCategory();
     getCompanyRegion();
   }
 
-  const getCompanyCateogry = () => {
+  const getCompanyCategory = () => {
     fetch(categoryUrl).then((categoryResults) => 
     categoryResults.json()).then((categoryLists) => {
 
@@ -71,6 +71,7 @@ const RecommendationPage = () => {
   return (
     <div className="RecommendationPage">
       <PageNavbar active="recommendation"/>
+      <div style={{width: '70vw', margin: '0 auto', marginTop: '2vh'}}>
       <h1>Start Up Company Category and Location Recommendation</h1>
         <input
           onChange={changeMajorInput}
@@ -86,6 +87,7 @@ const RecommendationPage = () => {
          <Table class="table"
          dataSource = {regionResults}
          columns={regionColumn} />
+      </div>
     </div>
   );
 };
