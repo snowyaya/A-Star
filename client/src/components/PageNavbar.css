@@ -67,6 +67,12 @@
     display: none;
   }
   
+@media screen and (max-width: 800px) {
+  .nav-menu {
+    font-size: 20px;
+  }
+}
+
   @media screen and (max-width: 1300px) {
     .NavbarItems {
       position: relative;
@@ -76,35 +82,62 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      height: 50vh;
+      min-height: 70vh;
+      min-width: 70vw;
       position: absolute;
       top: 80px;
-      left: 100%;
-      opacity: 0.5;
-      transition: all 0.5s ease;
+      right: 100%;
+      opacity: 0.7;
+      
     }
   
     .nav-menu.active {
-      background: white;
+      background: linear-gradient(45deg,#b8a1c2, #92a4b5);
       left: 0;
-      opacity: 0.7;
-      transition: all 0.5s ease;
-      z-index: 1;
+      opacity: 0.8;
+      z-index: 5;
+      position: absolute;
+      width: 47%;
+      min-height: 70vh;
+      transform: translate(100%);
+      padding-bottom: 50px;
+      padding-top: 50px;
+      min-width: 30%;
     }
   
     .nav-links {
       text-align: center;
       padding: 2rem;
-      width: 100%;
+      width: 10%;
       display: table;
       color:black;
     }
   
     .nav-links:hover {
-      background-color: black;
-      border-radius: 0;
-      color: white
+      color: black;
+      border-radius: 10px;
+      background-color: white;
     }
+ 
+    ul {
+      position:relative;
+      list-style-type: none;
+      font-size:25px;
+      border-radius: 20px;
+    }
+    
+    ul a {
+      display: block;
+    }
+    
+    ul a:hover {
+      margin-right:-50px;
+      padding-left:20px;
+      padding-right:20px;
+      padding-bottom: 20px;
+      margin-bottom: -20px;
+    } 
+      
   
     .navbar-logo {
       position: absolute;
@@ -118,7 +151,7 @@
       position: absolute;
       top: 0;
       right: 0;
-      transform: translate(-100%, 60%);
+      transform: translate(-100%, 30%);
       font-size: 1.8rem;
       cursor: pointer;
     }
@@ -134,7 +167,7 @@
       padding: 1.5rem;
       margin: 2rem auto;
       border-radius: 4px;
-      width: 80%;
+      width: 100%;
       background: #1888ff;
       text-decoration: none;
       color: #fff;
