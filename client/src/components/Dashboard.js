@@ -86,7 +86,25 @@ const Dashboard = () => {
           >
             Company Distributions
           </Button>
+
+          <Button
+            className="choice"
+            variant="contained"
+            style={{
+              float: "left",
+              marginLeft: "30px",
+              color: "white",
+              backgroundColor: "#acb6e5",
+              fontWeight: "bold",
+            }}
+            onClick={() => getCompanyDistributions()}
+          >
+            Geographic Funding Distributions
+          </Button>
+
+          
         </div>
+        
         <div>
           <div
             style={{
@@ -183,8 +201,13 @@ const Dashboard = () => {
           </div>
         </div>
       <br></br>
+          
       <br></br>
+      
       <br></br>
+
+      
+      
         <div
           style={{
             margin: "auto",

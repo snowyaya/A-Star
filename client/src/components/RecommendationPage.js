@@ -1,6 +1,6 @@
 import PageNavbar from "./PageNavbar";
 import config from "./../config.json";
-import { Table } from "antd";
+import { Table, Button } from "antd";
 
 import React, { useState } from 'react';
 
@@ -77,8 +77,9 @@ const RecommendationPage = () => {
           onChange={changeMajorInput}
           value={major}
           placeholder={"Type your major"}
+          style={{borderRadius: "5px"}}
         />
-        <button onClick={search}>Search</button>
+        <Button style={{marginLeft: "8 px"}} onClick={search}>Search</Button>
 
          <Table class="table"
          dataSource={categoryResults}
