@@ -31,40 +31,14 @@ const PageNavBar = (props) => {
       setDropdown(false);
     }
   };
-  
-  // useEffect(() => {
-  //   const pageList = ["home", "dashboard", "recommendation", "funding", "VC"];
-
-  //   let navbarDivs = pageList.map((page, i) => {
-  //     if (props.active === page) {
-  //       return (
-  //         <a className="nav-item nav-link active" key={i} href={"/" + page} style={{fontSize: '35px', fontWeight: 'bold'}}>
-  //           {page.charAt(0).toUpperCase() + page.substring(1, page.length)}
-  //         </a>
-  //       );
-  //     } else {
-  //       return (
-  //         <a className="nav-item nav-link" key={i} href={"/" + page} style={{fontSize: '35px', fontWeight: 'bold'}}>
-  //           {page.charAt(0).toUpperCase() + page.substring(1, page.length)}
-  //         </a>
-  //       );
-  //     }
-  //   });
-  //   setNavDivs(navbarDivs);
-  // }, [props.active]);
 
   return (
-    // <div className="PageNavbar">
-    //   <nav className="navbar navbar-expand-lg navbar-dark">
-    //     <div className="collapse navbar-collapse" id="navbarNavAltMarkup" style={{backgroundColor: "rgba(0,0,0,0.0)"}}>
-    //       <div className="navbar-nav" style={{backgroundColor: "rgba(0,0,0,0.0)"}}>{navDivs}</div>
-    //     </div>
-    //   </nav>
-    // </div>
-    
     <div className="PageNavbar">
-      
       <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor: "rgba(0,0,0,0.0)"}}>
+        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+          A-STAR
+          <i class='fab fa-firstdraft' />
+        </Link>
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
@@ -119,10 +93,19 @@ const PageNavBar = (props) => {
               VC
             </Link>
           </li>
-          
+
+          <li className="nav-item">
+          <Link
+              to='/signup'
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              SignUp
+            </Link>
+          </li>
         </ul>
 
-        <Button />
+        
       </nav>
       </div>
       
