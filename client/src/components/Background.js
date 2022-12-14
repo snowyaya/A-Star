@@ -75,7 +75,7 @@ const Wave5 = styled(Wave)`
 `;
 
 const Wave6 = styled(Wave)`
-  top: 700px;
+  top: 750px;
   height: 630px;
   background-image: url(${heroWave});
 `;
