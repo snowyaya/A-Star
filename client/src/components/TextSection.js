@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export default function TextSection() {
   return (
-    <div className="font-link" style={{marginLeft:'10px'}}>
+    <div className="font-link" style={{margin:'auto'}}>
     <Wrapper>
         <Title>A-STAR Investment</Title>
         <Description>
@@ -15,12 +15,13 @@ export default function TextSection() {
 
 const Wrapper = styled.div`
   position: relative;
-  max-width: 800px;
+  max-width: 700px;
   display: grid;
   gap: 20px;
   text-align: left;
   margin: 0 auto;
   padding: 140px 20px 100px;
+  margin-left: 20px;
 `;
 
 const Title = styled.h1`
@@ -31,7 +32,7 @@ const Title = styled.h1`
 `;
 
 const Description = styled.p`
-  max-width: 800px;
+  max-width: 700px;
   color: rgba(255, 255, 255, 0.7);
   font-style: normal;
   font-weight: normal;

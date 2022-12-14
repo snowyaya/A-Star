@@ -19,7 +19,14 @@ export default class Home extends React.Component {
       <Wrapper>
         <Background />
         <PageNavbar active="home" />
+        <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '80vh',
+      }}>
         <TextSection />
+        </div>
       </Wrapper>
     );
   }
