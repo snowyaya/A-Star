@@ -77,8 +77,9 @@ const RecommendationPage = () => {
           onChange={changeMajorInput}
           value={major}
           placeholder={"Type your major"}
+          style={{borderRadius: "5px"}}
         />
-        <Button onClick={search}>Search</Button>
+        <Button style={{marginLeft: "8 px"}} onClick={search}>Search</Button>
 
          <Table class="table"
          dataSource={categoryResults}
