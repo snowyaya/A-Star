@@ -79,18 +79,10 @@ const MapChart = ({ statesQueryRes, setTooltipContent, minComp, maxComp}) => {
         {({ geographies }) => (
           <>
             {geographies.map((geo) => {
-              // let color;
-              // if (geo.id === "20") {
-              //   color = "CCC";
-              // } else {
-              //   color = "#ABC";
-              // }
               const stateCode = allStates.find((s) => s.val === geo.id);
               let decile = findStateDecile(stateCode.id);
               return (
                 <Geography
-                  // key={geo.rsmKey}
-                  // stroke="#FFF"
                   geography={geo}
                   //fill the color for each state on the US map
                   fill={colorScale(decile)}
