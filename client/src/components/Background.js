@@ -30,6 +30,7 @@ const Wrapper = styled.div`
   background: linear-gradient(180deg, #322d6d 6.33%, #663182 39.13%);
   text-align: center;
   overflow: hidden;
+  textOverflow: ellipsis;
 `;
 
 const Wave = styled.div`

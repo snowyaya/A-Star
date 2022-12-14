@@ -14,6 +14,7 @@
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
+  padding-top: 8px;
 }
 
 .navbar-logo:hover {
@@ -74,6 +75,8 @@
     width: 100%;
     align-items: flex-start;
   }
+
+  
 }
 
 @media screen and (max-width: 800px) {
