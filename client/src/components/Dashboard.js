@@ -47,8 +47,9 @@ const Dashboard = () => {
           // Initialize min and max  number of companies
           let minCompanies = Number.MAX_SAFE_INTEGER; 
           let maxCompanies = Number.MIN_SAFE_INTEGER; 
+          console.log("Content", content);
 
-          // Find min and max  number of companies
+          // Find min and max number of companies
           for (const [key, value] of Object.entries(newObj)) { 
             if (value.Companies != null) {
               minCompanies = value.Companies < minCompanies ? value.Companies : minCompanies;
@@ -67,6 +68,8 @@ const Dashboard = () => {
   return (
     <div className="Dashboard">
       <PageNavbar active="dashboard" />
+      <br></br>
+      <br></br>
       <div>
         <div>
           <Button
@@ -75,6 +78,9 @@ const Dashboard = () => {
             style={{
               float: "left",
               marginLeft: "100px",
+              color: "white",
+              backgroundColor: "#acb6e5",
+              fontWeight: "bold",
             }}
             onClick={() => getCompanyDistributions()}
           >
@@ -88,7 +94,7 @@ const Dashboard = () => {
               marginLeft: "100px",
             }}
           >
-            <p>
+            <p style={{color: 'white', marginRight: '10px'}}>
               Min: 
               {minVal}
             </p>
@@ -170,13 +176,15 @@ const Dashboard = () => {
               float: "left",
             }}
           >
-            <p>
+            <p style={{color: 'white', marginLeft: '10px'}}>
               Max:
               {maxVal}
             </p>
           </div>
         </div>
-
+      <br></br>
+      <br></br>
+      <br></br>
         <div
           style={{
             margin: "auto",

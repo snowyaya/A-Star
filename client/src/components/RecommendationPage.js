@@ -72,7 +72,7 @@ const RecommendationPage = () => {
     <div className="RecommendationPage">
       <PageNavbar active="recommendation"/>
       <div style={{width: '70vw', margin: '0 auto', marginTop: '2vh'}} >
-      <h1>Start Up Company Category and Location Recommendation</h1>
+      <h2>Start Up Company Category and Location Recommendation</h2>
         <input
           onChange={changeMajorInput}
           value={major}

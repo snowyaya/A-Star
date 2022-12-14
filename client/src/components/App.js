@@ -18,7 +18,6 @@ const App = () => {
     <div className="App">
       <Router>
         <Routes>
-          console.log("Entered App.js");
           <Route exact path="/" element={<Home/>} />
           <Route path="/home" element={<Home/>} />
           <Route exact path="/dashboard" element={<Dashboard/>} />
