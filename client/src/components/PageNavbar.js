@@ -35,9 +35,9 @@ const PageNavBar = (props) => {
   return (
     <div className="PageNavbar">
       <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor: "rgba(0,0,0,0.0)"}}>
-        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          A-STAR
-          <i class='fab fa-firstdraft' />
+        <Link to='/' className='navbar-logo font-link' onClick={closeMobileMenu} style={{fontSize:'28px'}}>
+          STARDVISOR
+          {/* <i class='fab fa-firstdraft' /> */}
         </Link>
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />

@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import logo from "../images/navbar-logo.png";
 
 export default function TextSection() {
   return (
     <div className="font-link" style={{margin:'auto'}}>
     <Wrapper>
-        <Title>A-STAR Investment</Title>
+      <img src={logo} alt="logo" />
+        {/* <Title>STARDVISOR</Title> */}
         <Description>
         Helping you grow your business
         </Description>
@@ -39,4 +41,5 @@ const Description = styled.p`
   font-size: 40px;
   line-height: 130%;
   margin: 0 left;
+  text-align: center;
 `;
