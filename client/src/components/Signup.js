@@ -1,6 +1,9 @@
+import PageNavBar from "./PageNavbar";
+
 function SignUp() {
   return (
     <div>
+        <PageNavBar />
       <h1>SignUp</h1>
       <form>
         <label>
