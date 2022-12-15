@@ -3,10 +3,14 @@
 https://user-images.githubusercontent.com/75382121/207910699-fe516e47-fa0c-4c2a-8985-53ba405f0246.mp4
 
 ## Contributors:
-Meihan Pan, @LagohPrano
-Ling Lin, @linlingaixuexi
-Junzhe Ren, @Kenyg369
-Yaya Liang, @snowyaya
+Meihan Pan, `@LagohPrano`
+
+Ling Lin, `@linlingaixuexi`
+
+Junzhe Ren, `@Kenyg369`
+
+Yaya Liang, `@snowyaya`
+
 
 ## Intro
 There are many startup companies started everyday but there is a lack of comprehensive statistics about them to facilitate people understand startup culture and current trends. 
@@ -26,6 +30,7 @@ Our website is focused on providing information to pre-startup owners, who are l
 
 ## Architecture
 
+![architecture](https://user-images.githubusercontent.com/75382121/207916921-96b17e7b-d96c-4e3a-8ba0-d1661ee5272a.jpg)
 
 **Front End**
 `react`
@@ -48,6 +53,11 @@ Our website is focused on providing information to pre-startup owners, who are l
 `MySQL`
 
 ## Schema
+
+### ER Diagram
+
+![ER diagram](https://user-images.githubusercontent.com/75382121/207917026-b24d69bb-e981-4ee0-8ae8-46ddc710d15d.png)
+
 `companies `
 | Attribute           | Type    | Description                                                                       |
 |---------------------|---------|-----------------------------------------------------------------------------------|
