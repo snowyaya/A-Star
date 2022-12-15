@@ -35,6 +35,7 @@ Our website is focused on providing information to pre-startup owners, who are l
 ![architecture](https://user-images.githubusercontent.com/75382121/207916921-96b17e7b-d96c-4e3a-8ba0-d1661ee5272a.jpg)
 
 **Front End**
+
 `react`
 
 `three.js`
@@ -44,6 +45,7 @@ Our website is focused on providing information to pre-startup owners, who are l
 `ant design`
 
 **Back End**
+
 `Express`
 
 `Node`
@@ -59,6 +61,8 @@ Our website is focused on providing information to pre-startup owners, who are l
 ### ER Diagram
 
 ![ER diagram](https://user-images.githubusercontent.com/75382121/207917026-b24d69bb-e981-4ee0-8ae8-46ddc710d15d.png)
+
+### Database
 
 `companies `
 | Attribute           | Type    | Description                                                                       |
