@@ -13,7 +13,7 @@ connection.connect();
 
 /* ---- (Get companies distribution) ---- */
 function getCompDistribution(req, res) {
-    console.log("Called getCompDistribution");
+    // console.log("Called getCompDistribution");
     var query = `
     SELECT state_code as State, COUNT(id) AS Companies
     FROM companies
@@ -23,7 +23,7 @@ function getCompDistribution(req, res) {
     connection.query(query, function (err, rows, fields) {
       if (err) console.log(err);
       else {
-        console.log(rows);
+        // console.log(rows);
         res.json(rows);
       }
     });
