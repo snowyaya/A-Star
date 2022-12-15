@@ -20,11 +20,13 @@ Our website is focused on providing information to pre-startup owners, who are l
 
 ## Structure
 ```
-|-- home page
-|-- recommendation page
-|-- funding page
-|-- vc page
-|-- sign up
+|-- Home page
+|-- Dashboard
+   |-- Company distribution heatmap
+|-- Recommendation page
+|-- Funding page
+|-- VC page
+|-- Sign up
 
 ```
 
