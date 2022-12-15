@@ -2,6 +2,51 @@
 
 https://user-images.githubusercontent.com/75382121/207910699-fe516e47-fa0c-4c2a-8985-53ba405f0246.mp4
 
+## Contributors:
+Meihan Pan, @LagohPrano
+Ling Lin, @linlingaixuexi
+Junzhe Ren, @Kenyg369
+Yaya Liang, @snowyaya
+
+## Intro
+There are many startup companies started everyday but there is a lack of comprehensive statistics about them to facilitate people understand startup culture and current trends. 
+
+Our website is focused on providing information to pre-startup owners, who are looking for inspiration from startups in various fields, as well as to current startup owners, who are looking for funding and information from investors in the field. 
+
+
+## Structure
+```
+|-- home page
+|-- recommendation page
+|-- funding page
+|-- vc page
+|-- sign up
+
+```
+
+## Architecture
+
+
+**Front End**
+`react`
+
+`three.js`
+
+`material-ui`
+
+`ant design`
+
+**Back End**
+`Express`
+
+`Node`
+
+`MongoDB`
+
+`AWS`
+
+`MySQL`
+
 ## Schema
 `companies `
 | Attribute           | Type    | Description                                                                       |
@@ -70,27 +115,6 @@ https://user-images.githubusercontent.com/75382121/207910699-fe516e47-fa0c-4c2a-
 | Type        | int              | varchar                                    | varchar                                                                  |
 | Description | Primary key      | Foreign key references id in companies.csv | Foreign key references id in financial_orgs.csv/people.csv/companies.csv |
 
-
-## Tech Stack
-**Front End**
-`react`
-
-`three.js`
-
-`material-ui`
-
-`ant design`
-
-**Back End**
-`Express`
-
-`Node`
-
-`MongoDB`
-
-`AWS`
-
-`MySQL`
 
 ## Deployment
 
