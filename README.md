@@ -134,7 +134,13 @@ Our website is focused on providing information to pre-startup owners, who are l
 
 ## Deployment
 
-`npm install`
+`server`
 
-`npm start`
+`npm install`, `npm start`
+
+`client`
+
+`npm install`, `npm start`
+
+Find the deployment at `http://localhost:3000/`
 
