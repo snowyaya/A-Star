@@ -11,6 +11,7 @@ import {
 	Routes
 } from 'react-router-dom';
 import MapChart from "./MapChart";
+import SignUp from "./Signup";
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/recommendation" element={<RecommendationPage/>} />
           <Route path="/funding" element={<FundingPage />} />
           <Route path="/vc" element={<VCPage/>} />
+          <Route path="/signup" element={<SignUp/>} />
         </Routes>
       </Router>
     </div>
