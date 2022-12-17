@@ -20,13 +20,21 @@ Our website is focused on providing information to pre-startup owners, who are l
 
 ## Structure
 ```
-|-- Home page
-|-- Dashboard
-   |-- Company distribution heatmap
-|-- Recommendation page
-|-- Funding page
-|-- VC page
-|-- Sign up
+app
+├── config
+│   └── routes.js
+├── screens
+│   └── App
+│       ├── index.js
+│       └── screens
+│           ├── homepage
+│           ├── dashboard
+│           │   ├── company geographical distribution heatmap
+│           ├── recommendation
+│           ├── funding
+│           ├── vc preference
+│           └── signup
+└── index.js
 
 ```
 
