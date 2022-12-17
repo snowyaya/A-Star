@@ -29,7 +29,7 @@ app
 │       └── screens
 │           ├── homepage
 │           ├── dashboard
-│           │   ├── company geographical distribution heatmap
+│           │   └── company geographical distribution heatmap
 │           ├── recommendation
 │           ├── funding
 │           ├── vc preference
